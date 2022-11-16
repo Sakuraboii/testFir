@@ -37,6 +37,7 @@ dependencies {
 //    implementation 'org.jooq:jooq-codegen'
 //    implementation 'org.jooq:jooq-meta-extensions-liquibase'
     implementation "com.google.guava:guava:$guavaVersion"
+    testImplementation "junit:junit:4.13"
 
 //    jooqGenerator 'org.jooq:jooq-meta-extensions-liquibase'
 //    jooqGenerator "jakarta.xml.bind:jakarta.xml.bind-api:$bindApiVersion"
@@ -51,3 +52,12 @@ dependencies {
 jacoco {
     toolVersion = "0.8.8"
 }
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        html.enabled false
+    }
+}
+
+check.dependsOn jacocoTestReport
