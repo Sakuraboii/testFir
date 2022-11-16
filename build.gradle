@@ -1,0 +1,50 @@
+plugins {
+    id 'org.springframework.boot' version '2.7.5'
+    id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+    id 'java'
+    id 'jacoco'
+    //for jooq code generation - https://github.com/etiennestuder/gradle-jooq-plugin
+//    id 'nu.studer.jooq' version '8.0'
+    id 'org.liquibase.gradle' version '2.0.4'
+}
+
+group = 'org.openspace'
+version = '0.0.1'
+sourceCompatibility = '17'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    set('guavaVersion', '31.1-jre')
+    set('bindApiVersion', '4.0.0')
+    set("postgresqlVersion", '42.5.0')
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-jooq'
+
+    runtimeOnly "org.postgresql:postgresql:$postgresqlVersion"
+    implementation 'org.liquibase:liquibase-core'
+//    implementation 'org.jooq:jooq-codegen'
+//    implementation 'org.jooq:jooq-meta-extensions-liquibase'
+    implementation "com.google.guava:guava:$guavaVersion"
+
+//    jooqGenerator 'org.jooq:jooq-meta-extensions-liquibase'
+//    jooqGenerator "jakarta.xml.bind:jakarta.xml.bind-api:$bindApiVersion"
+//    jooqGenerator "org.postgresql:postgresql:$postgresqlVersion"
+
+
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
