@@ -8,6 +8,5 @@ class SimpleTest {
 
     @Test
     void message() {
-        assertNotNull("Jopa");
     }
 }
