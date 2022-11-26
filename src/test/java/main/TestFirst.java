@@ -1,9 +1,6 @@
-package test;
+package main;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
-import org.springframework.boot.test.context.SpringBootTest;
 
 public class TestFirst {
 
