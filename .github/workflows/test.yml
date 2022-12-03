@@ -27,6 +27,9 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew build
 
+      - name: Build with Gradle
+        run: ./gradlew generateJooq
+
       - name: Test coverage
         uses: codecov/codecov-action@v2
         with:
