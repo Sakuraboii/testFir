@@ -30,6 +30,9 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew generateJooq
 
+      - name: Codecov
+        run: chmod +x codecov ./codecov
+
       - name: Test coverage
         uses: codecov/codecov-action@v2
         with:
