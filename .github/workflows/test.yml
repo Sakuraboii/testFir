@@ -27,9 +27,6 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew build
 
-      - name: Build with Gradle
-        run: ./gradlew generateJooq
-
       - name: Codecov
         run: chmod +x codecov ./codecov
 
