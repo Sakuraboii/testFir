@@ -27,11 +27,8 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew build
 
-      - name: Codecov
-        run: chmod +x codecov ./codecov
-
       - name: Test coverage
-        uses: codecov/codecov-action@v2
+        uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           verbose: true
